@@ -18,6 +18,12 @@ class Splendid_Dictionary:
                 temp.append(v)
         if temp: return temp
         else: return "oshibochka"
+    
+    def remove(self, key):
+        index = self._hash(key)
+        removed_item = self.dict.pop(index)
+        self.size -=1
+        return removed_item
 
     def __len__(self):
         return self.size
@@ -37,7 +43,6 @@ splendid_dict.set(1,"e")
 splendid_dict.set(1,"f")
 splendid_dict.display()
 print('------')
-print(splendid_dict.get(1))
-print(splendid_dict.get(2))
-print(splendid_dict.get(5))
+splendid_dict.remove(3)
+splendid_dict.display()
 
