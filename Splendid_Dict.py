@@ -1,13 +1,17 @@
 class Splendid_Dictionary:
-    def __init__(self, size):
-        self.size = size
-        self.dict = [[] for _ in range(self.size)]
+    def __init__(self):
+        self.size = 0
+        self.dict = []
 
     def _hash(self, key):
         return hash(key) % self.size #get index in the array where key-value pair is stored
     
     def set(self, key, value):
+        self.size += 1
         index = self._hash(key)
+        print(index)
+         
+        self.dict.append([])
         self.dict[index].append((key, value))
     
     def get(self, key):
@@ -33,7 +37,7 @@ class Splendid_Dictionary:
         for i in range(len):
             print(self.dict[i])
   
-splendid_dict = Splendid_Dictionary(5)
+splendid_dict = Splendid_Dictionary()
 splendid_dict.set(0,"x")
 splendid_dict.set(1,"a")
 splendid_dict.set(2,"b")
